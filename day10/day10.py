@@ -16,15 +16,14 @@ mul = ones * threes
 print("Part 1: {0}".format(mul))
 
 
-def count_variations(jolts):
+def distinct_ways(jolts):
     tries = defaultdict(int)
     tries[0] = 1
     for jolt in jolts:
         tries[jolt] = sum([tries[jolt - d] for d in [1, 2, 3]])
-
     return tries[jolts[-1]]
 
-variations = count_variations(data)
+variations = distinct_ways(data)
 print("Part 2: {0}".format(variations))
 
 			
